@@ -1,23 +1,26 @@
-// -------INSTRUCTIONS-------
-// 1. Complete the exercise as indicated on the handout for assignment #5
-// 2. Then delete these comments
-// 3. Finally, commit and push the project containing this file to GitHub
-
-// -------RUBRIC-------
-// Functionality								/6
-// Methods adhere to program requirements	/5
-// Value returned from calculatePremium()	/3
-// Coding conventions & comments				/6
-
+import javax.swing.JOptionPane;
 
 public class InsurancePremium {
 
 	public static void main(String[] args) {
-		//Insert body of main() method here
+		//Declaring variables
+		int currentYear, birthYear, prem;
+		
+		//User input
+		currentYear = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter the current year: "));			
+		birthYear = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter your birth year: "));
+				
+		prem = calculatePremium(currentYear, birthYear);
+		
+		JOptionPane.showMessageDialog(null,"Your premium is: " + prem);
+			
+	}	
+	//Calculations
+	public static int calculatePremium(int cy, int by) {
+		int age = cy - by;
+		int decade = age / 10;
+		int premium = (decade + 15) * 20;
+		return premium;
 	}
-	
-	public static int calculatePremium(/*Insert parameters here*/) {
-		//Insert body of calculatePremium() method here
-	}
-
+				
 }
